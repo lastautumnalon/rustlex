@@ -1,0 +1,37 @@
+# 文法设计
+
+<program> ::= <stmt_list>"#"
+<stmt_list> ::= <stmt> | <stmt> <stmt_list>
+<stmt> ::= <assign_stmt> | <if_stmt>
+<assign_stmt> ::= id "=" <expr> "\n"
+<if_stmt> ::= "if" <cond> "{" <stmt> "}"
+<cond> ::= <expr><relop><expr>
+<relop> ::= "<" | ">" | "=="
+<expr> ::= <term> | <expr> "+" <term> | <expr> "-" <term>
+<term> ::= <factor> | <term> "*" <factor> | <term> "/" <factor>
+<factor> ::= id | num | "(" <expr> ")"
+
+
+# 词法设计
+
+关键字表：
+auto break case char const continue default
+ do double else enum extern float for goto 
+ if int long register return shotr signed
+  sizeof static struct switch typedef union
+   unsigned void volatile while
+
+标识符：
+identifier :=identifier(identifier | num)*
+
+常量:
+<num> := <digit><num> | <digit>
+
+<digit> := 0|1|2|3|4|5|6|7|8|9
+
+运算符:
++ - * / = < > ==
+
+分割符:
+( ) { } \n
+
