@@ -35,9 +35,9 @@ fn main()
 	while c != '#' {
 		// println!("text:{:?}",iter.as_str());
 		// println!("char:{:?}",c);
-		if c.is_alphabetic() {
+		if c.is_alphabetic() || c == '_' {
 			let mut temp = String::new();
-			while c.is_alphabetic() {
+			while c.is_alphanumeric() || c == '_' {
 				temp.push(c);
 				c = iter.next().expect(&format!("标识符定义异常：{}",temp));
 			}
